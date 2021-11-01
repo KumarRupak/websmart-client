@@ -81,7 +81,7 @@ export const SignUp = () => {
         .post(uri.uriSignup, data)
         .then((response) => {
           if (response.status === 200) {
-            swal("Your userId is : "+response.data.customerId,"Your mPIN is : "+response.data.customerId).then(
+            swal("Your userId is : "+response.data.customerId,"Your mPIN is : "+response.data.mPIN).then(
               (value) => {
                history.push("/")
               }
