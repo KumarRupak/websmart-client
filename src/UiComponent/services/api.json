@@ -1,0 +1,67 @@
+{
+    "uriLogin":"http://wscauth-env.eba-8umesc3n.us-east-2.elasticbeanstalk.com/api/v1/login",
+
+    "uriLogout":"http://wscauth-env.eba-8umesc3n.us-east-2.elasticbeanstalk.com/api/v1/logout/",
+
+
+
+
+
+
+
+    "uriCustomerProfile":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/",
+
+    "uriCustomerOtp":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/otp/",
+
+    "uriCibil":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/cibil/",
+
+    "uriCustomerSetPin":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/generatepin/",
+
+    "uriCreditCard":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/block/",
+
+    "uriCreditCards":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/cards/",
+
+    "uriCreditTest":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/offer/predict",
+
+    "uriSetLimit":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/usage",
+
+    "uriSignup":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/register",
+
+    "uriSlider":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/offer/",
+
+    "uriSmartEnable":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/disableautopay/",
+
+    "uriSmartDisable":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/enableautopay",
+
+    "uriTransactionHistory":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/transaction/",
+
+    "uriGetEmi":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/emi/",
+
+    "uriTransferFund":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/transfer" ,
+
+    "uriCardDetails":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/",
+
+    "uriPayEmi":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/payemi",
+    
+
+
+
+
+
+    "uriAdminProfile":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/branch/",
+
+    "uriGridAdminCredit":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/eligiblecustomer/",
+
+    "uriGridAdminOrg":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/organization/", 
+
+    "uriTableCredit":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/allowcredit",
+
+    "uriTableOrg":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/activatetoken",
+
+
+
+
+    "uriRegisterOrg":"http://wscservice-env.eba-tpnkqeaz.us-east-2.elasticbeanstalk.com/api/service/register"
+    
+   
+}
