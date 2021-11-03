@@ -71,10 +71,19 @@ export const Slider = () => {
                 cardOffers={element.cardOffers[0]}
                 creditAmount={element.creditAmount}
                 instalmentPeriod={element.instalmentPeriod}
-                interestRate={element.interestRate}
+                interestRate={element.interestRate} 
               />
             ];
-          })}
+          })} 
+            <OfferCards
+                status={1}
+                key={'gold'}
+                cardType={'gold'}
+                cardOffers={'10% off on zomato'}
+                creditAmount={50000}
+                instalmentPeriod={'1'}
+                interestRate={2} 
+              />
         </div>
       </div>
     </div>
