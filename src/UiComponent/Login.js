@@ -56,8 +56,6 @@ export const Login = () => {
   }
   if(data.customerId.length===6  && data.password.length>7)
   {
-    sessionStorage.setItem("customerId","123456")
-    history.push("/cushome")
     document.getElementById('loading').innerHTML=
     `<div class="spinner-border text-danger" role="status">
     <span class="sr-only">.</span>

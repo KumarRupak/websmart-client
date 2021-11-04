@@ -10,8 +10,10 @@ export const Navbar = () => {
   const logout=(e)=>{
     e.preventDefault();
 
-    
-        if(true){
+    axios.post(uri.uriLogout
+      +sessionStorage.getItem("customerId")
+      +"?token="+sessionStorage.getItem("token")).then((response)=>{
+        if(response.status===200){
 
           swal({
             title: "Are you sure?",
@@ -39,7 +41,7 @@ export const Navbar = () => {
           alert("Someting went wrong")
 
         }
-      
+      })
  
   }
   return (
