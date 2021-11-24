@@ -9,7 +9,7 @@ export const Slider = () => {
 
   const [progress ,setprogress] = useState(0)
   const [user, setuser] = useState([]);
-
+  
   const getCards = async () => {
     try {
       document.getElementById('loading').innerHTML=
@@ -65,7 +65,7 @@ export const Slider = () => {
           {user.map((element) => {
             return [
               <OfferCards
-                status={element.bookName === 'student'?1:0}
+                status={element.bookName === user[0].bookName?1:0}
                 key={element.bookName}
                 rank={element.rank}
                 bookName={element.bookName}

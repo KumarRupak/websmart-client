@@ -24,8 +24,10 @@ export const CibilCalculator = () => {
 
     if (e.target.value.length > 3) {
       try {
+        var bookN=""
+        bookN= uri.uriSearchBook+document.getElementById("panId").value
         let response = await fetch(
-          uri.uriSearchBook+document.getElementById("panId").value
+          bookN.toLowerCase()
           +"?token="+sessionStorage.getItem("token"),
           {
             method: "GET",
@@ -96,14 +98,17 @@ export const CibilCalculator = () => {
               </tr>
             </thead>} 
             <tbody>
-           
-                <TableCheckOut
+               
+               { 
+               data.bookId==null?"":
+               <TableCheckOut
                 key={data.bookId}
                 bookId={data.bookId}
                 bookName={data.bookName} 
                 subscription={data.subscription}
                 bookDownloads={data.bookDownloads}
-                />
+                /> 
+                }
               
               <div id="loading"></div>
             </tbody>
