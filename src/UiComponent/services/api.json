@@ -1,67 +1,49 @@
 {
-    "uriLogin":"http://wscauth-env.eba-8umesc3n.us-east-2.elasticbeanstalk.com/api/v1/login",
+    "uriLogin":"http://authservice-env.eba-yrnwsd7n.us-east-1.elasticbeanstalk.com/v1/auth/login",
 
-    "uriLogout":"http://wscauth-env.eba-8umesc3n.us-east-2.elasticbeanstalk.com/api/v1/logout/",
-
-
+    "uriLogout":"http://authservice-env.eba-yrnwsd7n.us-east-1.elasticbeanstalk.com/v1/auth/logout/",
 
 
 
 
 
-    "uriCustomerProfile":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/",
 
-    "uriCustomerOtp":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/otp/",
 
-    "uriCibil":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/cibil/",
+    "uriCustomerSubscribedBook" :"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/subscribed/",
 
-    "uriCustomerSetPin":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/generatepin/",
+    "uriBookDownload" :"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/",
 
-    "uriCreditCard":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/block/",
+    "uriBooks": "http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/books/",
 
-    "uriCreditCards":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/cards/",
+    "uriCheckoutBook":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/checkout",
 
-    "uriCreditTest":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/offer/predict",
+    "uriSearchBook":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/name/",
 
-    "uriSetLimit":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/usage",
+    "uriSignup":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/register",
 
-    "uriSignup":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/register",
+    "uriSlider":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/trend/",
 
-    "uriSlider":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/offer/",
-
-    "uriSmartEnable":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/disableautopay/",
-
-    "uriSmartDisable":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/enableautopay",
-
-    "uriTransactionHistory":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/transaction/",
-
-    "uriGetEmi":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/emi/",
-
-    "uriTransferFund":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/transfer" ,
-
-    "uriCardDetails":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/card/",
-
-    "uriPayEmi":"http://wscuser-env.eba-kdfcubmg.us-east-2.elasticbeanstalk.com/api/customer/account/payemi",
     
 
 
 
 
 
-    "uriAdminProfile":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/branch/",
+    "uriAdminPublishBook":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/upload",
 
-    "uriGridAdminCredit":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/eligiblecustomer/",
+    "uriAdminRevokeBook":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/revoke",
 
-    "uriGridAdminOrg":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/organization/", 
+    "uriAdminAccessList":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/accesslist",
 
-    "uriTableCredit":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/allowcredit",
-
-    "uriTableOrg":"http://wscadmin-env.eba-ybemmmwm.us-east-2.elasticbeanstalk.com/api/admin/activatetoken",
-
-
-
-
-    "uriRegisterOrg":"http://wscservice-env.eba-tpnkqeaz.us-east-2.elasticbeanstalk.com/api/service/register"
+    "uriAdminUpdateCredentials":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/updateCredentials",
     
-   
+    "uriAdminUpdateJob":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/updateJob/",
+
+    "uriAdminJob":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/job"
+
+  
+
+
+
+
 }
