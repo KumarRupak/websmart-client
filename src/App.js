@@ -4,7 +4,6 @@ import { Login } from './UiComponent/Login';
 import { RegisterOrg } from './UiComponent/RegisterOrg';
 import { SignUp } from './UiComponent/Signup';
 import {Switch,Route} from "react-router-dom";
-//import { ErrorNotFound } from './ErrorComponent/ErrorNotFound';
 import { CreditTest } from './UiComponent/CreditTest';
 import { auth } from './testing/auth';
 import { Home } from './UiComponent/Home';
@@ -22,6 +21,8 @@ import { AdminHome } from './UiComponent/AdminHome';
 import {AdminProfile} from './UiComponent/AdminProfile';
 import { PublishCard } from './UiComponent/PublishCard';
 import { ErrorNotFound } from './ErrorComponent/ErrorNotFound';
+
+
 
 
 
@@ -51,7 +52,7 @@ function App() {
         <Route exact path='/limit' component={SetLimit}/>
         <Route exact path='/smartpay' component={SmartPay}/>
         <Route exact path='/transfer' component={TransferFund}/>
-        <Route component={ErrorNotFound}/>
+        <Route component={Login}/>
       </Switch>
      }
       </>
