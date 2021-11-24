@@ -2,90 +2,82 @@ import React from "react";
 import Swal from 'sweetalert2'
 import swal from 'sweetalert';
 import uri from './services/api.json';
+import { useState } from "react";
+import axios from "axios";
 
 
 export const CreditCard = (prop) => {
 
-  const blockCard=async()=>{
+  const [data, setData] = useState({})
 
-    const { value: text } = await Swal.fire({
+ 
+
+  const checkoutBook=async(e)=>{
+
+    document.getElementById('loading').innerHTML=
+    `<div class="spinner-border" role="status">
+    <span class="sr-only"></span>
+     </div>`
+
+    setData({
+      email:sessionStorage.getItem("customerId"),
+      bookId:prop.bookId
+    })
+
+  /*  const { value: text } = await Swal.fire({
       input: 'textarea',
       inputLabel: 'Message',
-      inputPlaceholder: 'Enter the reason for block',
+      inputPlaceholder: 'Please Enter Your Profession',
       inputAttributes: {
-        'aria-label': 'Enter the reason for block'
+        'aria-label': 'Enter Your Profession'
       },
       showCancelButton: true
-    })
+    }) */
     
-    if (text) {
-     
-      document.getElementById('loading').innerHTML=
-      `<div class="spinner-border" role="status">
-      <span class="sr-only"></span>
-       </div>`
+    if (true) {
 
-       try {
-        let response = await fetch(
-          uri.uriCreditCard+prop.cardNumber
-          +"?token="+sessionStorage.getItem("token"),
-          {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          }
-        );
-        
-        if (response.status === 200) {
-          swal({
-            text: "Success",
-          });
-          document.getElementById('loading').innerHTML='Block'
-        }
-        else{
-          swal({
-            text: "Failed",
-          });
-          document.getElementById('loading').innerHTML='Block'
-        }
-        
-      } catch (error) {
-        swal({
-          text: "Please try again",
-        });
-        document.getElementById('loading').innerHTML='Block'
-      }
-    }  
+       axios
+       .post(uri.uriCheckoutBook+"?token="+sessionStorage.getItem("token"), data)
+       .then((response) => {
+         if (response.status === 200) { 
+          swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
+           document.getElementById("loading").innerHTML = "Check out";
+         }
+       })
+       .catch((error) => {
+        swal("Something went wrong please try again!")
+         document.getElementById("loading").innerHTML = "Check out";
+       });
+
+       
+    }  else{
+      document.getElementById("loading").innerHTML = "Check out";
+    }
     
   }
 
   return (
     <div>
       <div className="card">
-        <div className="card-header" id={prop.cardNumber}>
+        <div className="card-header" id={prop.bookName}>
           <h2 className="mb-0">
             <button
               className="btn btn-link"
               type="button"
               data-toggle="collapse"
-              data-target={`#${prop.cardNumber}s`}
+              data-target={`#${prop.bookId}s`}
               aria-expanded="true"
-              aria-controls={`${prop.cardNumber}s`}
+              aria-controls={`${prop.bookId}s`}
             >
-            <b>{prop.cardNumber}</b>
-            {prop.cardFlag===1?<span className="badge badge-success bg-success m-1">Active</span>
-            :<span className="badge badge-success bg-danger m-1">Inactive</span>}
-            {prop.cardFlag===1?<a id="loading" href="#" class="badge badge-danger bg-danger m-2" value={prop.cardNumber}  onClick={blockCard} >Block</a>:""}
+            <b>{prop.bookName}</b>
             </button>
           </h2>
         </div>
 
         <div
-          id={`${prop.cardNumber}s`}
+          id={`${prop.bookId}s`}
           className="collapse show"
-          aria-labelledby={prop.cardNumber}
+          aria-labelledby={prop.bookId}
           data-parent="#accordionExample"
         >
           <div className="d-flex justify-content-center p-3">
@@ -93,45 +85,27 @@ export const CreditCard = (prop) => {
               className="card text-white bg-info mb-3"
               style={{ "max-width": "38rem" }}
             >
-              <div className="card-header">{prop.cardType} </div>
+              <div className="card-header">
+                <a id="loading" href="#" class="btn badge badge-danger bg-danger m-2" value={prop.bookId}  onClick={checkoutBook} >
+                  Chcek out
+                </a> 
+              </div>
               <div className="card-body">
-                <h5 className="card-title">
-                  Available Credit Limit : {prop.cardLimit}
-                </h5>
+              
                 <h6 className="card-title">
-                  Issued On : {prop.creditReciveDateShowUser}
+                  Book Id : {prop.bookId}
                 </h6>
                 <hr />
                 <p className="card-text">
-                  {prop.cardSpend === 0
-                    ? ""
-                    : `Spend Amount : ${prop.cardSpend}`}
+                  Book Name : {prop.bookName}
                 </p>
                 <hr />
                 <p className="card-text">
-                  {prop.instalmentAmount === 0
-                    ? ""
-                    : `Instalment Amount : ${prop.instalmentAmount}`}
+                  Subscription : {prop.subscription}
                 </p>
                 <hr />
                 <p className="card-text">
-                  {prop.cardPendingInstalment === 0
-                    ? ""
-                    : `Card Pending Instalments : ${prop.cardPendingInstalment}`}
-                </p>
-                <hr />
-                <p className="card-text">
-                  {prop.cardPaidInstalment === 0
-                    ? ""
-                    : `Card Paid Instalments : ${prop.cardPaidInstalment}`}
-                </p>
-                <hr />
-                <p className="card-text">Interest Rate : {prop.interestRate}</p>
-                <hr />
-                <p className="card-text">
-                  {prop.instalamentDateShowUser === null
-                    ? ""
-                    : `Instalment Due On : ${prop.instalamentDateShowUser}`}
+                  Downloads : {prop.bookDownloads}
                 </p>
                 <hr />
               </div>

@@ -16,25 +16,15 @@ export const OfferCards = (prop) => {
     <>
       <div className={`carousel-item ${prop.status===1?"active":""}`}>
         <div className="d-flex justify-content-center">
-          <div className="shadow-lg rounded  p-2 text-white bg-dark ">
+          <div className="shadow-lg rounded bg-dark text-light py-1  px-5  ">
             <p className=" mb-2 bg-warning text-dark d-flex justify-content-center">{prop.cardType}</p>
             <p>
-              Offers : <MdCallMissedOutgoing />
-              {prop.cardOffers}
+              Book Name : {prop.bookName}
             </p>
             <p>
-              Limit Upto : <MdBookmarkBorder /> {prop.creditAmount} ₹ Interest
-              Rate {prop.interestRate} ₹
+              Top Downloads : <MdBookmarkBorder /> {prop.rank} 
             </p>
            
-            <button
-              type="button"
-              value={prop.cardType}
-              onClick={giveTest}
-              className="btn btn-danger btn-sm"
-            >
-              Test Credit
-            </button>
           </div>
         </div>
       </div>

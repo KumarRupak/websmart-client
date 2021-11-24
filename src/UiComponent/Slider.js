@@ -65,13 +65,10 @@ export const Slider = () => {
           {user.map((element) => {
             return [
               <OfferCards
-                status={element.cardType==='gold'?1:0}
-                key={element.cardType}
-                cardType={element.cardType}
-                cardOffers={element.cardOffers[0]}
-                creditAmount={element.creditAmount}
-                instalmentPeriod={element.instalmentPeriod}
-                interestRate={element.interestRate}
+                status={element.bookName === 'student'?1:0}
+                key={element.bookName}
+                rank={element.rank}
+                bookName={element.bookName}
               />
             ];
           })}

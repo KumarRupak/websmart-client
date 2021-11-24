@@ -3,21 +3,17 @@ import { useState } from "react";
 import axios from "axios";
 import { Alert } from "./Alert";
 import uri from './services/api.json';
-import swal from "sweetalert";
-import { useHistory } from "react-router";
+
 
 export const SignUp = () => {
+
   const [data, setdata] = useState({
-    accountNumber: "",
-    ifscCode: "",
-    balance: "",
-    name: "",
     email: "",
-    panId: "",
+    name: "",
     password: "",
   });
 
-  let history=useHistory()
+  const [password, setPassword] = useState("")
 
   const [alert, setalert] = useState(null);
 
@@ -32,22 +28,18 @@ export const SignUp = () => {
     }, 6000);
   };
 
+  const handlePassword=(e) => {
+    if(e.target.value===data.password){
+      document.getElementById("cnfpasswd").style.borderColor = "green";
+    }else{
+      document.getElementById("cnfpasswd").style.borderColor = "red";
+    }
+    setPassword(e.target.value)
+  }
+
   const register = (e) => {
     e.preventDefault();
     let count = 0;
-    if (data.accountNumber.length === 12) {
-      count++;
-      document.getElementById("accountNumber").style.borderColor = "green";
-    } else {
-      document.getElementById("accountNumber").style.borderColor = "red";
-    }
-
-    if (data.ifscCode.length === 11) {
-      count++;
-      document.getElementById("ifscCode").style.borderColor = "green";
-    } else {
-      document.getElementById("ifscCode").style.borderColor = "red";
-    }
 
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email) === true
@@ -58,12 +50,6 @@ export const SignUp = () => {
       document.getElementById("email").style.borderColor = "red";
     }
 
-    if (data.panId.length === 10) {
-      count++;
-      document.getElementById("panId").style.borderColor = "green";
-    } else {
-      document.getElementById("panId").style.borderColor = "red";
-    }
 
     if (data.password.length > 7) {
       count++;
@@ -72,7 +58,7 @@ export const SignUp = () => {
       document.getElementById("passwd").style.borderColor = "red";
     }
 
-    if (count === 5) {
+    if (count === 2 && data.password===password) {
       document.getElementById('loading').innerHTML=
       `<div class="spinner-border text-danger" role="status">
        <span class="sr-only">.</span>
@@ -81,13 +67,8 @@ export const SignUp = () => {
         .post(uri.uriSignup, data)
         .then((response) => {
           if (response.status === 200) {
-            swal("Your userId is : "+response.data.customerId,"Your mPIN is : "+response.data.mPIN).then(
-              (value) => {
-               history.push("/")
-              }
-            );
             showAlert(
-              " You have been registered your ID and MPIN has been sent your email ",
+              " You have been successfully registered ",
               "success"
             );
             document.getElementById('loading').innerHTML='Sign In'
@@ -95,7 +76,7 @@ export const SignUp = () => {
           }
         })
         .catch((error) => {
-          showAlert(" Please try again ", "warning");
+          showAlert(" Email has been already registered ", "warning");
           document.getElementById('loading').innerHTML='Sign In'
         });
     } else {
@@ -136,35 +117,6 @@ export const SignUp = () => {
             </div>
 
             <div className="form-group col-md-6">
-              <label Htmlfor="pandId">Pan Id</label>
-              <input
-                onChange={(e) => setdata({ ...data, panId: e.target.value })}
-                type="text"
-                className="form-control"
-                id="panId"
-                placeholder="Pan Number"
-                maxlength="10"
-                style={{ "text-transform": "uppercase" }}
-                required
-              />
-            </div>
-
-            <div className="form-group col-md-6">
-              <label Htmlfor="accountNumber">Bank Account Number</label>
-              <input
-                onChange={(e) =>
-                  setdata({ ...data, accountNumber: e.target.value })
-                }
-                type="number"
-                className="form-control"
-                id="accountNumber"
-                placeholder="Account Number"
-                maxlength="12"
-                required
-              />
-            </div>
-
-            <div className="form-group col-md-6">
               <label Htmlfor="password">Password</label>
               <input
                 onChange={(e) => setdata({ ...data, password: e.target.value })}
@@ -175,32 +127,19 @@ export const SignUp = () => {
                 required
               />
             </div>
-            <div className="form-row  d-flex">
-              <div className="form-group col-md-3">
-                <label Htmlfor="ifscCode">Ifsc Code</label>
-                <input
-                  onChange={(e) =>
-                    setdata({ ...data, ifscCode: e.target.value })
-                  }
-                  type="text"
-                  className="form-control"
-                  id="ifscCode"
-                  required
-                />
-              </div>
-              <div className="form-group col-md-3">
-                <label Htmlfor="balance">Account Balance</label>
-                <input
-                  onChange={(e) =>
-                    setdata({ ...data, balance: e.target.value })
-                  }
-                  type="number"
-                  className="form-control"
-                  id="balance"
-                  required
-                />
-              </div>
+
+            <div className="form-group col-md-6">
+              <label Htmlfor="password">Confirm Password</label>
+              <input
+                onChange={handlePassword}
+                type="password"
+                className="form-control"
+                id="cnfpasswd"
+                placeholder="Confirm Password"
+                required
+              />
             </div>
+           
           </div>
           <br />
           <button type="submit" class="btn btn-primary btn-sm my-3">

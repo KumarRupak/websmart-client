@@ -2,11 +2,24 @@ import { useState } from 'react'
 import React from 'react'
 import swal from 'sweetalert';
 import uri from './services/api.json';
+import { Alert } from "./Alert";
 
 
 export const TableCredit = (prop) => {
 
     const [data, setdata] = useState("")
+    const [alert, setalert] = useState(null);
+
+    const showAlert = (message, type) => {
+      setalert({
+        message: message,
+        type: type,
+      });
+  
+      setTimeout(() => {
+        setalert(null);
+      }, 6000);
+    };
 
 
     const AllowCredit=async(e)=>{
@@ -32,16 +45,16 @@ export const TableCredit = (prop) => {
           if(response.status===200)
           {
             let data=await response.json()
-            console.log(data)
+            showAlert("Successfully done  ", "success");
             document.getElementById(e.target.value).innerHTML="Allow"
           }
           else{
-            console.log(data)
+            showAlert("Insuffecient balance  ", "warning");
             document.getElementById(e.target.value).innerHTML="Allow"
           }
         }
         catch(error){
-         console.log(error)
+          showAlert("Something went wrong !", "warning");
          document.getElementById(e.target.value).innerHTML="Allow"
         }              
 
@@ -83,6 +96,8 @@ export const TableCredit = (prop) => {
     }
 
     return (
+      <>
+      <Alert alert={alert} />
         
                 <tr className={prop.cardEligibility===1?"bg-success text-white bg-opacity-8":"bg-danger p-1 text-dark bg-opacity-10"}>
                     <td>{prop.customerId}</td>
@@ -95,5 +110,6 @@ export const TableCredit = (prop) => {
                     <button id={prop.customerId}  type="button" class="btn btn-outline-info" value={prop.customerId} onClick={AllowCredit}>Allow</button>                    
                     </td>
                 </tr>
+                </>
     )
 }

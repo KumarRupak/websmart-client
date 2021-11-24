@@ -47,10 +47,10 @@ export const Navbar = () => {
   return (
     sessionStorage.getItem("customerId")!==null ?(
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark " style={{"background-color": "rgb(112, 41, 99)"}} >
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark " style={{"background-color": "rgb(112, 41, 99)"}} >
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
-           Welcome : {sessionStorage.getItem("customerId")}
+           Welcome : {sessionStorage.getItem("customerName")}
           </Link>
           <button
             className="navbar-toggler"
@@ -72,15 +72,6 @@ export const Navbar = () => {
                   to="/cusprofile"
                 >
                   <MdHome/>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/cusprof"
-                >
-                  <MdAccountCircle/>
                 </Link>
               </li>
               <li className="nav-item dropdown">

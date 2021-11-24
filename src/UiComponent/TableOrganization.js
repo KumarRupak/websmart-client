@@ -2,51 +2,57 @@ import { useState } from 'react'
 import React from 'react'
 import swal from 'sweetalert';
 import uri from './services/api.json';
+import { Alert } from "./Alert";
 
 
 export const TableOrganization = (prop) => {
 
-        const [data, setdata] = useState("")
+        const [jobId, setjobId] = useState("")
+        const [alert, setalert] = useState(null);
+
+    const showAlert = (message, type) => {
+      setalert({
+        message: message,
+        type: type,
+      });
+  
+      setTimeout(() => {
+        setalert(null);
+      }, 6000);
+    };
         
-        const ActivateToken=async(e)=>{
-            setdata({
-                organisationEmail:e.target.value,
-                branchId:sessionStorage.getItem("adminId")
-            })
+        const updateStatus=async(e)=>{
+            setjobId(e.target.value)
     
         const serviceApprove=async()=>{
             try
             {
-            console.log(data)
-           let response=await fetch(uri.uriTableOrg
-            +"?token="+sessionStorage.getItem("token"),{
+           let response=await fetch(uri.uriAdminUpdateJob+jobId+"?token="+sessionStorage.getItem("token"),{
               method:'PATCH',
               headers:{
                 'Content-Type':'application/json',
                 'Accept':'application/json',
-                'Access-Control-Allow-Origin' : '*'
             },
-            body:JSON.stringify(data)
           })
               if(response.status===200)
               {
                 let data=await response.json()
-                console.log(data)
-                document.getElementById(e.target.value).innerHTML="Activate"
+                showAlert("Successfully done  ", "success");
+                document.getElementById(e.target.value).innerHTML="Update"
               }
               else{
-                console.log(data)
-                document.getElementById(e.target.value).innerHTML="Activate"
+                showAlert("Something went wrong  ", "warning");
+                document.getElementById(e.target.value).innerHTML="Update"
               }
             }
             catch(error){
-             console.log(error)
-             document.getElementById(e.target.value).innerHTML="Activate"
+              showAlert("Something went wrong  ", "warning");
+             document.getElementById(e.target.value).innerHTML="Update"
             }              
     
         }
     
-            if(data.branchId!=null)
+            if(jobId!="")
             {
                 document.getElementById(e.target.value).innerHTML=
                 `<div class="spinner-border text-danger" role="status">
@@ -55,7 +61,7 @@ export const TableOrganization = (prop) => {
     
                 swal({
                     title: "Are you sure?",
-                    text: "Do you want to activate the key",
+                    text: "Do you want to update the status",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -72,7 +78,7 @@ export const TableOrganization = (prop) => {
                       });
                     }
                     else{
-                            document.getElementById(e.target.value).innerHTML="Activate"
+                            document.getElementById(e.target.value).innerHTML="Update"
                     }
                   });
                 }
@@ -81,11 +87,11 @@ export const TableOrganization = (prop) => {
     
     return (
 
-                <tr id="active"  className={prop.accountFlag===1?"bg-success text-white bg-opacity-8":"bg-danger p-1 text-dark bg-opacity-10"}>
-                    <td>{prop.organisationEmail}</td>
-                    <td>{prop.organisationName}</td>
+                <tr id="active"  className={prop.status==="Running"?"bg-success text-white bg-opacity-8":"bg-danger p-1 text-dark bg-opacity-10"}>
+                    <td>{prop.jobId}</td>
+                    <td>{prop.status}</td>
                     <td>      
-                    <button id={prop.organisationEmail}  type="button" class="btn btn-outline-info" value={prop.organisationEmail} onClick={ActivateToken}>Activate</button>                    
+                    <button id={prop.jobId}  type="button" class="btn btn-outline-info" value={prop.jobId} onClick={updateStatus}>Update</button>                    
                     </td>       
                 </tr>
         

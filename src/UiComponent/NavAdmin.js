@@ -7,7 +7,7 @@ import uri from './services/api.json';
 
 
 export const NavAdmin = () => {
-   let history=useHistory()
+  let history=useHistory()
   const logout=(e)=>{
     e.preventDefault();
 
@@ -42,16 +42,27 @@ export const NavAdmin = () => {
           alert("Someting went wrong")
 
         }
-      })
-    
+      })  
+  }
+  const updateCredentails=()=>{
+    axios.patch(uri.uriAdminUpdateCredentials+"?token="+sessionStorage.getItem("token"))
+    .then((response)=>{
+      if(response.data===true)
+      swal("Successfully done!")
+      else
+      swal("Please try again!")
+    })
+    .catch((e)=>{
+      swal("Please try again!")
+    })
   }
   return (
     sessionStorage.getItem("adminId")!==null ?(
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark " style={{"background-color": "rgb(112, 41, 99)"}} >
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark " style={{"background-color": "rgb(112, 41, 99)"}} >
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
-           Welcome : {sessionStorage.getItem("adminId")}
+           Welcome : {sessionStorage.getItem("adminName")}
           </Link>
           <button
             className="navbar-toggler"
@@ -75,15 +86,7 @@ export const NavAdmin = () => {
                   <MdHome/>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/adminprof"
-                >
-                  <MdAccountCircle/>
-                </Link>
-              </li>
+             
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -93,20 +96,20 @@ export const NavAdmin = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Offers
+                  Current access list
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Publish Credit
-                    </a>
+                  <Link className="dropdown-item" to={{pathname : `${uri.uriAdminAccessList}?token=${sessionStorage.getItem("token")}`}} target="_blank" role="button">
+                    download csv
+                  </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
+                    <a className="dropdown-item" href="#" onClick={updateCredentails}>
+                      Update credentials
                     </a>
                   </li>
                 </ul>

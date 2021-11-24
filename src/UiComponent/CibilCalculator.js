@@ -6,6 +6,7 @@ import { Navbar } from "./Navbar";
 import { Redirect } from "react-router";
 import LoadingBar from 'react-top-loading-bar'
 import uri from './services/api.json';
+import { TableCheckOut } from "./TableCheckOut";
 
 export const CibilCalculator = () => {
 
@@ -15,16 +16,16 @@ export const CibilCalculator = () => {
 
   const handlePanId = async (e) => {
     setpanId(e.target.value);
-    if (e.target.value.length !== 10) {
+    if (e.target.value.length < 3) {
       document.getElementById("panId").style.borderColor = "red";
     } else {
       document.getElementById("panId").style.borderColor = "green";
     }
 
-    if (e.target.value.length === 10) {
+    if (e.target.value.length > 3) {
       try {
         let response = await fetch(
-          uri.uriCibil+document.getElementById("panId").value
+          uri.uriSearchBook+document.getElementById("panId").value
           +"?token="+sessionStorage.getItem("token"),
           {
             method: "GET",
@@ -57,8 +58,8 @@ export const CibilCalculator = () => {
        
       />
       <Navbar />
-      <div class="card my-1">
-        <div class="card-header">CIBIL SCORE</div>
+      <div class="card ">
+        <div class="card-header"></div>
         <div class="container">
           <form>
             <div class="row my-4">
@@ -68,10 +69,9 @@ export const CibilCalculator = () => {
                   onChange={handlePanId}
                   type="text"
                   class="normal form-control border-right-0"
-                  placeholder="Type PanId"
+                  placeholder="Type Book Name"
                   value={panId}
                   maxlength="10"
-                  style={{ "text-transform": "uppercase" }}
                 />
                 <div class="input-group-prepend bg-white">
                   <span class="input-group-text border-left-0 rounded-right bg-white">
@@ -86,14 +86,28 @@ export const CibilCalculator = () => {
         </div>
 
         <div class="card-body">
-          <CibilScore
-            score={data.score}
-            parameter1={data.parameter1}
-            parameter2={data.parameter2}
-            parameter3={data.parameter3}
-            parameter4={data.parameter4}
-            eligibleLoans={data.eligibleLoans}
-          />
+        <table class="table table-hover">
+           {data.bookName==null?"":<thead>
+              <tr>
+                <th>Book Name</th>
+                <th>Subscription</th>
+                <th>Downloads</th>
+                <th>Check Out</th>
+              </tr>
+            </thead>} 
+            <tbody>
+           
+                <TableCheckOut
+                key={data.bookId}
+                bookId={data.bookId}
+                bookName={data.bookName} 
+                subscription={data.subscription}
+                bookDownloads={data.bookDownloads}
+                />
+              
+              <div id="loading"></div>
+            </tbody>
+          </table>
         </div>
       </div>
     </>

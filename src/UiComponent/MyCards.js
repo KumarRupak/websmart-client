@@ -15,7 +15,7 @@ export const MyCards = () => {
   const getData = async () => {
     try {
       let response = await fetch(
-          uri.uriCreditCards+
+          uri.uriBooks+
           sessionStorage.getItem("customerId")
           +"?token="+sessionStorage.getItem("token"),
         {
@@ -49,22 +49,18 @@ export const MyCards = () => {
        
       />
       <Navbar/>
+      <div class="alert alert-secondary d-flex justify-content-center" role="alert">
+      Available Books
+      </div>
     {data.map((element) => { 
     return[
     <div className="accordion p-2" id="accordionExample">
       <CreditCard
-        key={element.cardNumber}
-        cardNumber={element.cardNumber}
-        cardFlag={element.cardFlag}
-        cardType={element.cardType}
-        cardLimit={element.cardLimit}
-        cardSpend={element.cardSpend}
-        creditReciveDateShowUser={element.creditReciveDateShowUser}
-        instalmentAmount={element.instalmentAmount}
-        cardPendingInstalment={element.cardPendingInstalment}
-        cardPaidInstalment={element.cardPaidInstalment}
-        interestRate={element.interestRate}
-        instalamentDateShowUser={element.instalamentDateShowUser}
+        key={element.bookId}
+        bookId={element.bookId}
+        bookName={element.bookName}
+        subscription={element.subscription}
+        bookDownloads={element.bookDownloads}
       />
     </div>
       ]
