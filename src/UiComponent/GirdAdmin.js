@@ -78,7 +78,7 @@ export const GirdAdmin = () => {
           <span class="badge badge-pill badge-danger bg-danger mx-2"> </span>
           Manage Jobs
         </h7>
-        <div class="card-body" style={{ overflow: "scroll", height: "400px" }}>
+        <div class="card-body" style={{ overflow: "scroll", height: "450px" }}>
           <table class="table">
             <thead>
               <tr>
