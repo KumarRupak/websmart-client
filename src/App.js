@@ -52,7 +52,7 @@ function App() {
         <Route exact path='/limit' component={SetLimit}/>
         <Route exact path='/smartpay' component={SmartPay}/>
         <Route exact path='/transfer' component={TransferFund}/>
-        <Route component={Login}/>
+        <Route component={ErrorNotFound}/>
       </Switch>
      }
       </>
