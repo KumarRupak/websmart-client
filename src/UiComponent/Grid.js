@@ -26,11 +26,11 @@ export const Grid = () => {
 
 
   const getBook = async () => {
-    try {
-      document.getElementById('loading').innerHTML=
-  `<div class="spinner-border text-danger" role="status">
+    document.getElementById('loading1').innerHTML=
+  `<div class="spinner-border text-info" role="status">
   <span class="sr-only">.</span>
   </div>`
+    try {
       let response = await fetch(
           uri.uriCustomerSubscribedBook+
           sessionStorage.getItem("customerId")
@@ -45,14 +45,14 @@ export const Grid = () => {
       );
       if (response.status === 200) {
         setBook(await response.json());
-        document.getElementById('loading').innerHTML=""
+        document.getElementById('loading1').innerHTML=""
       }
       else{
-        document.getElementById('loading').innerHTML=""
+        document.getElementById('loading1').innerHTML=""
       }
     } catch (error) {
       //Log ---
-      document.getElementById('loading').innerHTML=""
+      document.getElementById('loading1').innerHTML=""
     }
   };
 
@@ -99,7 +99,7 @@ export const Grid = () => {
         </h7>
         <div class="card-body" style={{ overflow: "scroll", height: "250px"  }}>
           <table class="table table-hover">
-            <thead>
+            {book.length<1?"":<thead>
               <tr>
                 <th>Subscription Id</th>
                 <th>Book Name</th>
@@ -107,7 +107,7 @@ export const Grid = () => {
                 <th>Expiry On</th>
                 <th>Subscription Left</th>
               </tr>
-            </thead>
+            </thead>}
             <tbody>
             {book.map((element)=>{
                 return[
@@ -121,7 +121,7 @@ export const Grid = () => {
                 />
                 ]
               })}
-              <div id="loading"></div>
+              <div id="loading1" className="d-flex justify-content-center"></div>
             </tbody>
           </table>
         </div>

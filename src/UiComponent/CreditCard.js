@@ -14,7 +14,7 @@ export const CreditCard = (prop) => {
 
   const checkoutBook=async(e)=>{
 
-    document.getElementById('loading').innerHTML=
+    document.getElementById(prop.bookId+"l").innerHTML=
     `<div class="spinner-border" role="status">
     <span class="sr-only"></span>
      </div>`
@@ -41,17 +41,17 @@ export const CreditCard = (prop) => {
        .then((response) => {
          if (response.status === 200) { 
           swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
-           document.getElementById("loading").innerHTML = "Check out";
+           document.getElementById(prop.bookId+"l").innerHTML = "Check out";
          }
        })
        .catch((error) => {
         swal("Something went wrong please try again!")
-         document.getElementById("loading").innerHTML = "Check out";
+         document.getElementById(prop.bookId+"l").innerHTML = "Check out";
        });
 
        
     }  else{
-      document.getElementById("loading").innerHTML = "Check out";
+      document.getElementById(prop.bookId+"l").innerHTML = "Check out";
     }
     
   }
@@ -86,7 +86,7 @@ export const CreditCard = (prop) => {
               style={{ "max-width": "38rem" }}
             >
               <div className="card-header">
-                <a id="loading" href="#" class="btn badge badge-danger bg-danger m-2" value={prop.bookId}  onClick={checkoutBook} >
+                <a id={prop.bookId+"l"}  class="btn badge badge-danger bg-danger m-2" value={prop.bookId}  onClick={checkoutBook} >
                   Chcek out
                 </a> 
               </div>

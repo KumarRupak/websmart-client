@@ -15,7 +15,7 @@ export const GirdAdmin = () => {
     const getJob = async () => {
       try {
         document.getElementById('loading2').innerHTML=
-    `<div class="spinner-border text-danger" role="status">
+    `<div class="spinner-border text-info" role="status">
     <span class="sr-only">.</span>
     </div>`
         let response = await fetch(
@@ -80,13 +80,13 @@ export const GirdAdmin = () => {
         </h7>
         <div class="card-body" style={{ overflow: "scroll", height: "450px" }}>
           <table class="table">
-            <thead>
+            {job.length<1?"":<thead>
               <tr>
                 <th>Job Id</th>
                 <th>State</th>
                 <th>Action</th>
               </tr>
-            </thead>
+            </thead>}
             <tbody>
             {job.map((element)=>{
                 return[
@@ -97,7 +97,7 @@ export const GirdAdmin = () => {
                   />
                 ]
               })}
-              <div id="loading2"></div>
+              <div className="d-flex justify-content-center" id="loading2"></div>
             </tbody>
           </table>
         </div>

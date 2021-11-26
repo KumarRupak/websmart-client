@@ -13,6 +13,10 @@ export const MyCards = () => {
   const [data, setData] = useState([]);
 
   const getData = async () => {
+    document.getElementById('loading2').innerHTML=
+    `<div class="spinner-border text-info" role="status">
+    <span class="sr-only">.</span>
+    </div>`
     try {
       let response = await fetch(
           uri.uriBooks+
@@ -28,10 +32,12 @@ export const MyCards = () => {
       );
       if (response.status === 200) {
         setData(await response.json());
-        setprogress(100); 
+        setprogress(100);
+        document.getElementById('loading2').innerHTML="" 
       }
     } catch (error) {
       //Log ---
+      document.getElementById('loading2').innerHTML=""
     }
   };
 
@@ -65,6 +71,7 @@ export const MyCards = () => {
     </div>
       ]
    })}
+    <div className="d-flex justify-content-center" id="loading2"></div>
    </div>
    ):<Redirect to="/login"/>
   );

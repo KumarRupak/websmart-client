@@ -13,7 +13,7 @@ export const Slider = () => {
   const getCards = async () => {
     try {
       document.getElementById('loading').innerHTML=
-    `<div class="spinner-border text-danger" role="status">
+    `<div class="spinner-border text-info" role="status">
     <span class="sr-only">.</span>
     </div>`
       let response = await fetch(
@@ -60,7 +60,7 @@ export const Slider = () => {
         className="carousel slide container py-2 px-2 border  rounded  bg-success  text-dark bg-opacity-9 "
         data-bs-ride="carousel"
       >
-        <div id="loading"></div>
+        <div id="loading" className="d-flex justify-content-center"></div>
         <div className="carousel-inner ">
           {user.map((element) => {
             return [
