@@ -86,7 +86,7 @@ export const NavAdmin = () => {
                   <MdHome/>
                 </Link>
               </li>
-             
+
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -107,6 +107,26 @@ export const NavAdmin = () => {
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
+                  <li>
+                  <Link className="dropdown-item" to="#" role="button">
+                    download PDF
+                  </Link>
+                  </li>
+                </ul>
+              </li>
+             
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Security
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <a className="dropdown-item" href="#" onClick={updateCredentails}>
                       Update credentials

@@ -60,9 +60,9 @@ export const GirdAdmin = () => {
 
       <div class="card m-1">
         <h7 class="card-header text-muted" >
-          Manage Book
+          Console
           <span class="badge badge-pill badge-danger bg-danger mx-2"> </span>
-          Access
+          Manage Books
         </h7>
         <div class="card-body bg-info d-flex justify-content-center" >
         <BookUpload/>
