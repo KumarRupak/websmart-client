@@ -10,7 +10,7 @@ import { useState } from "react";
 export const TableCheckOut = (prop) => {
 
     
-  const [data, setData] = useState({})
+
 
  
 
@@ -21,10 +21,11 @@ export const TableCheckOut = (prop) => {
     <span class="sr-only"></span>
      </div>`
 
-    setData({
+   
+    const data={
       email:sessionStorage.getItem("customerId"),
       bookId:e.target.value
-    })
+    }
 
   /*  const { value: text } = await Swal.fire({
       input: 'textarea',
@@ -38,18 +39,33 @@ export const TableCheckOut = (prop) => {
     
     if (true) {
 
-       axios
-       .post(uri.uriCheckoutBook+"?token="+sessionStorage.getItem("token"), data)
-       .then((response) => {
-         if (response.status === 200) { 
-          swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
+      axios
+      .post(uri.uriCheckoutBook+"?token="+sessionStorage.getItem("token"), data)
+      .then((response) => {
+        if (response.status === 200) {
+         
+         if(response.data==="revoked"){
+
+           swal("You don't have access to this book !")
            document.getElementById("loading").innerHTML = "Check out";
+
          }
-       })
-       .catch((error) => {
-        swal("Something went wrong please try again!")
-         document.getElementById("loading").innerHTML = "Check out";
-       });
+         else if(response.data==="subscribed"){
+
+           swal("You has been already subscribed !")
+           document.getElementById("loading").innerHTML = "Check out";
+
+         }
+         else{
+         swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
+          document.getElementById("loading").innerHTML = "Check out";
+         }
+        }
+      })
+      .catch((error) => {
+       swal("Something went wrong please try again!")
+        document.getElementById("loading").innerHTML = "Check out";
+      });
 
        
     }  else{

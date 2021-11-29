@@ -100,7 +100,7 @@ export const NavAdmin = () => {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                  <Link className="dropdown-item" to={{pathname : `${uri.uriAdminAccessList}?token=${sessionStorage.getItem("token")}`}} target="_blank" role="button">
+                  <Link className="dropdown-item" to={{pathname : `${uri.uriAdminAccessListCsv}?token=${sessionStorage.getItem("token")}`}} target="_blank" role="button">
                     download csv
                   </Link>
                   </li>
@@ -108,7 +108,7 @@ export const NavAdmin = () => {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                  <Link className="dropdown-item" to="#" role="button">
+                  <Link className="dropdown-item" to={{pathname : `${uri.uriAdminAccessListPdf}?token=${sessionStorage.getItem("token")}`}} target="_blank" role="button">
                     download PDF
                   </Link>
                   </li>

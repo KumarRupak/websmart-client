@@ -70,21 +70,21 @@ export const Grid = () => {
 <div className="container my-3   py-4 px-3 border bg-white rounded">
         <div className="py-2">
           <label>
-            <i>Book Repository</i>
+            <i>Library</i>
           </label>
         </div>
         <div className="row ">
           <div className="col">
             <div className="p-1 m-1 border bg-light">
               <Button startIcon={<MdBook style={{ color: "indigo" }} onClick={showBooks}/>}  >
-              <small>Show Books</small>
+              <small>All Books</small>
               </Button>
             </div>
           </div>
           <div className="col">
             <div className="p-1 m-1   border bg-light">
               <Button startIcon={<MdSearch style={{ color: "indigo" }}  onClick={searchBook}/>} >
-              <small>Find Book</small>
+              <small>Serach Book</small>
               </Button>
             </div>
           </div>

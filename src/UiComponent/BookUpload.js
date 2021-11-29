@@ -128,7 +128,9 @@ catch(e){
     <section className="container shadow p-1 bg-light rounded ">
       <div {...getRootProps({className: 'dropzone'})} className="d-flex justify-content-center">
         <input {...getInputProps()} />
-        <img src="https://img.icons8.com/material-outlined/50/000000/add-file.png"/>
+
+        <p className="d-flex justify-content-center muted  my-4">Drag files here Or choose your file</p>
+        
       </div>
       <aside className="">
         

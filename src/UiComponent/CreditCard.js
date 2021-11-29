@@ -8,10 +8,6 @@ import axios from "axios";
 
 export const CreditCard = (prop) => {
 
-  const [data, setData] = useState({})
-
- 
-
   const checkoutBook=async(e)=>{
 
     document.getElementById(prop.bookId+"l").innerHTML=
@@ -19,10 +15,10 @@ export const CreditCard = (prop) => {
     <span class="sr-only"></span>
      </div>`
 
-    setData({
+    const data={
       email:sessionStorage.getItem("customerId"),
       bookId:prop.bookId
-    })
+    }
 
   /*  const { value: text } = await Swal.fire({
       input: 'textarea',
@@ -39,9 +35,24 @@ export const CreditCard = (prop) => {
        axios
        .post(uri.uriCheckoutBook+"?token="+sessionStorage.getItem("token"), data)
        .then((response) => {
-         if (response.status === 200) { 
+         if (response.status === 200) {
+          
+          if(response.data==="revoked"){
+
+            swal("You don't have access to this book !")
+            document.getElementById(prop.bookId+"l").innerHTML = "Check out";
+
+          }
+          else if(response.data==="subscribed"){
+
+            swal("You has been already subscribed !")
+            document.getElementById(prop.bookId+"l").innerHTML = "Check out";
+
+          }
+          else{
           swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
            document.getElementById(prop.bookId+"l").innerHTML = "Check out";
+          }
          }
        })
        .catch((error) => {
@@ -101,7 +112,7 @@ export const CreditCard = (prop) => {
                 </p>
                 <hr />
                 <p className="card-text">
-                  Subscription : {prop.subscription}
+                  Subscription : {prop.subscription} days
                 </p>
                 <hr />
                 <p className="card-text">

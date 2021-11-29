@@ -69,6 +69,7 @@ export const Slider = () => {
                 key={element.bookName}
                 rank={element.rank}
                 bookName={element.bookName}
+                bookId={element.bookId}
               />
             ];
           })}
