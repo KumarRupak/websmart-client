@@ -2,10 +2,12 @@ import { useState } from 'react'
 import React from 'react'
 import swal from 'sweetalert';
 import uri from './services/api.json';
-import { Alert } from "./Alert";
+
+
 
 
 export const TableOrganization = (prop) => {
+
 
         const [jobId, setjobId] = useState("")
         const [alert, setalert] = useState(null);
@@ -73,7 +75,7 @@ export const TableOrganization = (prop) => {
                       }).then((session)=>{
                         if(session){
                          serviceApprove() 
-                         swal("Done!");
+                         window.location.reload(true)
                         }
                       });
                     }
@@ -91,7 +93,7 @@ export const TableOrganization = (prop) => {
                     <td>{prop.jobId}</td>
                     <td>{prop.status}</td>
                     <td>      
-                    <button id={prop.jobId}  type="button" class="btn btn-outline-info" value={prop.jobId} onClick={updateStatus}>Update</button>                    
+                    <button id={prop.jobId}  type="button" className="btn btn-outline-info shadow-sm" value={prop.jobId} onClick={updateStatus}>Update</button>                    
                     </td>       
                 </tr>
         

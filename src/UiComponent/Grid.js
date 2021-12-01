@@ -59,6 +59,7 @@ export const Grid = () => {
   useEffect(() => {
     getBook();
     setprogress(100);
+    
   }, []);
 
 

@@ -11,18 +11,13 @@ import { TableCheckOut } from "./TableCheckOut";
 export const CibilCalculator = () => {
 
   const [panId, setpanId] = useState("");
-  const [data, setdata] = useState({});
+  const [data, setdata] = useState([]);
   const [progress ,setprogress] = useState(0)
 
   const handlePanId = async (e) => {
     setpanId(e.target.value);
-    if (e.target.value.length < 3) {
-      document.getElementById("panId").style.borderColor = "red";
-    } else {
-      document.getElementById("panId").style.borderColor = "green";
-    }
 
-    if (e.target.value.length > 3) {
+
       try {
         var bookN=""
         bookN= uri.uriSearchBook+document.getElementById("panId").value
@@ -41,6 +36,7 @@ export const CibilCalculator = () => {
           let score = await response.json();
           setprogress(100);
           setdata(score);
+          console.log(score)
         } else {
           //log.....
         }
@@ -48,7 +44,7 @@ export const CibilCalculator = () => {
         console.log(error)
         //log..........
       }
-    }
+    
   };
 
   return (
@@ -89,26 +85,31 @@ export const CibilCalculator = () => {
 
         <div class="card-body">
         <table class="table table-hover">
-           {data.bookName==null?"":<thead>
+           {data.length<1?"":<thead>
               <tr>
                 <th>Book Name</th>
                 <th>Subscription</th>
                 <th>Downloads</th>
                 <th>Check Out</th>
               </tr>
-            </thead>} 
+            </thead>
+            } 
             <tbody>
                
                { 
-               data.bookId==null?"":
-               <TableCheckOut
-                key={data.bookId}
-                bookId={data.bookId}
-                bookName={data.bookName} 
-                subscription={data.subscription}
-                bookDownloads={data.bookDownloads}
-                /> 
-                }
+               data.map((element)=>{
+                 return [
+                   data.length<0?"":
+                <TableCheckOut
+                 key={element.bookId}
+                 bookId={element.bookId}
+                 bookName={element.bookName} 
+                 subscription={element.subscription}
+                 bookDownloads={element.bookDownloads}
+                 /> 
+                 ]
+               })
+               }
               
               <div id="loading"></div>
             </tbody>

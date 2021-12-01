@@ -138,10 +138,10 @@ catch(e){
       </aside>
     </section><br/>
     <section className="d-flex justify-content-center">
-    <button type="button" class=" mx-2 btn btn-outline-success" onClick={uploadBook}>
+    <button type="button" className=" mx-2 btn btn-outline-success shadow  rounded" onClick={uploadBook}>
     <h7 id="loading">  Upload Book </h7>
     </button>
-    <button type="button" class="mx-2 btn btn-outline-danger" onClick={revokeAccess}>
+    <button type="button" className="mx-2 btn btn-outline-danger shadow   rounded" onClick={revokeAccess}>
     <h7 id="load">  Revoke Access  </h7> 
     </button>
     </section>

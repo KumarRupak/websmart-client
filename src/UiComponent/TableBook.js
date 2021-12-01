@@ -16,7 +16,7 @@ export const TableBook = (prop) => {
                     <td>{prop.expiryOn}</td>
                     <td>{prop.subscriptionLeft=="0"?"Today":prop.subscriptionLeft}</td>
                     <td>   
-                    <Link class="btn   btn-outline-success " to={{pathname : `${uri.uriBookDownload+prop.subcribeId}/?token=${sessionStorage.getItem("token")}`}} target="_blank" role="button">download</Link>                   
+                    <Link className="btn   btn-outline-success shadow-sm" to={{pathname : `${uri.uriBookDownload+prop.subcribeId}/?token=${sessionStorage.getItem("token")}`}} target="_top" role="button">download</Link>                   
                     </td>
                 </tr>
                 </>

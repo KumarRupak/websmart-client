@@ -30,11 +30,12 @@ export const Slider = () => {
       if (response.status === 200) {
         setuser(await response.json());
         setprogress(100);
-        document.getElementById('loading').innerHTML=""
+        document.getElementById('loading').innerHTML=""  
       }
       else
       {
         document.getElementById('loading').innerHTML=""
+
       }
     } catch (error) {
       //Log ---

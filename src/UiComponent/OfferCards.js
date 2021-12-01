@@ -25,28 +25,40 @@ export const OfferCards = (prop) => {
     .post(uri.uriCheckoutBook+"?token="+sessionStorage.getItem("token"), data)
     .then((response) => {
       if (response.status === 200) {
-       
+      
        if(response.data==="revoked"){
 
-         swal("You don't have access to this book !")
-         document.getElementById(e.target.value).innerHTML = "Check out";
-
+        swal("You don't have access to this book !")
+        .then((value) => {
+          document.getElementById(e.target.value).innerHTML = "Check out";
+              window.location.reload(true)
+           });
        }
        else if(response.data==="subscribed"){
 
-         swal("You has been already subscribed !")
-         document.getElementById(e.target.value).innerHTML = "Check out";
-
+        swal("You has been already subscribed !")
+        .then((value) => {
+          document.getElementById(e.target.value).innerHTML = "Check out";
+              window.location.reload(true)
+           });
        }
        else{
-       swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
-        document.getElementById(e.target.value).innerHTML = "Check out";
+        swal("Successfully Done! ", "Your Subcription Will Expiry On : "+response.data.expiryOn)
+        .then((value) => {
+          document.getElementById(e.target.value).innerHTML = "Check out";
+              window.location.reload(true)
+           });
        }
       }
     })
     .catch((error) => {
-     swal("Something went wrong please try again!")
-      document.getElementById(e.target.value).innerHTML = "Check out";
+
+      swal("Something went wrong please try again!")
+.then((value) => {
+  document.getElementById(e.target.value).innerHTML = "Check out";
+      window.location.reload(true)
+   });
+
     });
 
   };

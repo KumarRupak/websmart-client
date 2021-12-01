@@ -100,7 +100,7 @@ export const NavAdmin = () => {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                  <Link className="dropdown-item" to={{pathname : `${uri.uriAdminAccessListCsv}?token=${sessionStorage.getItem("token")}`}} target="_blank" role="button">
+                  <Link className="dropdown-item" to={{pathname : `${uri.uriAdminAccessListCsv}?token=${sessionStorage.getItem("token")}`}} target="_top" role="button">
                     download csv
                   </Link>
                   </li>
