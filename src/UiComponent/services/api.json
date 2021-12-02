@@ -1,27 +1,27 @@
 {
-    "uriLogin":"http://authservice-env.eba-yrnwsd7n.us-east-1.elasticbeanstalk.com/v1/auth/login",
+    "uriLogin":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/auth-service/v1/auth/login",
 
-    "uriLogout":"http://authservice-env.eba-yrnwsd7n.us-east-1.elasticbeanstalk.com/v1/auth/logout/",
-
-
+    "uriLogout":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/auth-service/v1/auth/logout/",
 
 
 
 
 
-    "uriCustomerSubscribedBook" :"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/subscribed/",
 
-    "uriBookDownload" :"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/",
 
-    "uriBooks": "http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/books/",
+    "uriCustomerSubscribedBook" :"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/book/subscribed/",
 
-    "uriCheckoutBook":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/checkout",
+    "uriBookDownload" :"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/book/",
 
-    "uriSearchBook":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/name/",
+    "uriBooks": "http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/books/",
 
-    "uriSignup":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/register",
+    "uriCheckoutBook":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/book/checkout",
 
-    "uriSlider":"http://bookservice-env.eba-xmfasr66.us-east-1.elasticbeanstalk.com/v1/customer/book/trend/",
+    "uriSearchBook":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/book/name/",
+
+    "uriSignup":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/register",
+
+    "uriSlider":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/book-service/v1/customer/book/trend/",
 
     
 
@@ -29,17 +29,19 @@
 
 
 
-    "uriAdminPublishBook":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/upload",
+    "uriAdminPublishBook":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/upload",
 
-    "uriAdminRevokeBook":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/revoke",
+    "uriAdminRevokeBook":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/revoke",
 
-    "uriAdminAccessList":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/accesslist",
+    "uriAdminAccessListCsv":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/accesslist/csv",
 
-    "uriAdminUpdateCredentials":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/updateCredentials",
+    "uriAdminAccessListPdf":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/accesslist/pdf",
+
+    "uriAdminUpdateCredentials":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/updateCredentials",
     
-    "uriAdminUpdateJob":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/updateJob/",
+    "uriAdminUpdateJob":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/updateJob/",
 
-    "uriAdminJob":"http://adminservice-env.eba-xzpceymp.us-east-1.elasticbeanstalk.com/v1/admin/job"
+    "uriAdminJob":"http://gatewayservice-env.eba-mhbk3pmg.us-east-1.elasticbeanstalk.com/admin-service/v1/admin/job"
 
   
 
