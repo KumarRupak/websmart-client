@@ -31,7 +31,7 @@ export const OfferCards = (prop) => {
         swal("You don't have access to this book !")
         .then((value) => {
           document.getElementById(e.target.value).innerHTML = "Check out";
-              window.location.reload(true)
+             // window.location.reload(true)
            });
        }
        else if(response.data==="subscribed"){
@@ -39,7 +39,7 @@ export const OfferCards = (prop) => {
         swal("You has been already subscribed !")
         .then((value) => {
           document.getElementById(e.target.value).innerHTML = "Check out";
-              window.location.reload(true)
+              //window.location.reload(true)
            });
        }
        else{
@@ -56,7 +56,7 @@ export const OfferCards = (prop) => {
       swal("Something went wrong please try again!")
 .then((value) => {
   document.getElementById(e.target.value).innerHTML = "Check out";
-      window.location.reload(true)
+     // window.location.reload(true)
    });
 
     });

@@ -24,7 +24,8 @@ import uri from './services/api.json';
   const uploadBook=()=>{
     if(acceptedFiles.length==1)
     {
-      if(getExtension(acceptedFiles[0].name)!='csv')
+      console.log(acceptedFiles[0].size)
+      if(getExtension(acceptedFiles[0].name)!='csv' && acceptedFiles[0].size<=1000000)
       {
     document.getElementById('loading').innerHTML=
     `<div class="spinner-border text-white" role="status">
@@ -32,7 +33,7 @@ import uri from './services/api.json';
     </div>`
     upload(acceptedFiles[0]);
       }else{
-        swal("csv files are not acceptable")
+        swal("csv files are not acceptable or file size exceed")
       }
     }
     else
@@ -42,7 +43,7 @@ import uri from './services/api.json';
   }
 
   const revokeAccess=()=>{
-    if(acceptedFiles.length==1 && getExtension(acceptedFiles[0].name)=='csv')
+    if(acceptedFiles.length==1 && getExtension(acceptedFiles[0].name)=='csv' && acceptedFiles[0].size<=1000000)
     {
     console.log(acceptedFiles[0].name)
     document.getElementById('load').innerHTML=
@@ -53,7 +54,7 @@ import uri from './services/api.json';
   }
   else
   {
-    swal("Please select a csv file")
+    swal("Please select a csv file or file size exceed")
   }
   }
 

@@ -64,7 +64,7 @@ export const GirdAdmin = () => {
           <span class="badge badge-pill badge-danger bg-danger mx-2"> </span>
           Manage Books
         </h7>
-        <div class="card-body bg-info d-flex justify-content-center" >
+        <div class="card-body bg-info " >
         <BookUpload/>
         </div>
       </div>
