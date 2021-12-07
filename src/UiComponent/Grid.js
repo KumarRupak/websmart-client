@@ -77,14 +77,14 @@ export const Grid = () => {
         <div className="row ">
           <div className="col">
             <div className="p-1 m-1 border bg-light">
-              <Button startIcon={<MdBook style={{ color: "indigo" }} onClick={showBooks}/>}  >
+              <Button startIcon={<MdBook style={{ color: "indigo" }} />} onClick={showBooks} >
               <small>All Books</small>
               </Button>
             </div>
           </div>
           <div className="col">
             <div className="p-1 m-1   border bg-light">
-              <Button startIcon={<MdSearch style={{ color: "indigo" }}  onClick={searchBook}/>} >
+              <Button startIcon={<MdSearch style={{ color: "indigo" }}  />} onClick={searchBook} >
               <small>Serach Book</small>
               </Button>
             </div>
