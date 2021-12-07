@@ -102,7 +102,7 @@ export const Grid = () => {
           <table class="table table-hover">
             {book.length<1?"":<thead>
               <tr>
-                <th>Subscription Id</th>
+                <th>Downlaod</th>
                 <th>Book Name</th>
                 <th>Issued On</th>
                 <th>Expiry On</th>
