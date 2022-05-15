@@ -1,0 +1,7 @@
+{
+"apiAccountUpdate" : "http://dopservice-env.eba-pyxkyyq9.us-east-1.elasticbeanstalk.com/dop/agent/account",
+"apisearchAccountNo":"http://dopservice-env.eba-pyxkyyq9.us-east-1.elasticbeanstalk.com/dop/agent/accountNumber/",
+"apigetAccounts":"http://dopservice-env.eba-pyxkyyq9.us-east-1.elasticbeanstalk.com/dop/agent/accounts/",
+"apigetPages":"http://dopservice-env.eba-pyxkyyq9.us-east-1.elasticbeanstalk.com/dop/agent/accounts/pages"
+
+}
